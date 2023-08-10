@@ -1,18 +1,23 @@
 import {useState} from "react";
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo"
+import CompletedTodos from "./components/CompletedTodos";
 
 const items = [
   {id:1, text:"buy groceries", done: false},
   {id:2, text:"finish painting", done: false},
-  {id:3, text:"exercise daily", done: false}
+  {id:3, text:"exercise daily", done: false},
+]
+
+const completedItems = [
+  {id:4, text:"play football", done:true},
+  {id:5, text:"wake up early", done:true}
 ]
 
 
 function App(){
   const [todos, setTodos] = useState(items);
-
-  let completed = []
+  const [completedTodos, setCompletedTodos] = useState(completedItems)
 
   function addTodo(text){
     const newTodo = {id:Date.now(), text, done:false};
@@ -20,21 +25,16 @@ function App(){
   }
 
   function toggleTodo(id){
-    
-    const updatedTodos = todos.map((todo) => 
-      todo.id === id ? {...todo, done:!todo.done} : todo
-    )
 
+    const completedTodo = todos.find(todo => todo.id === id);
+    setCompletedTodos([...completedTodos, completedTodo]);
+    
+    const updatedTodos = todos.filter((todo) => 
+      todo.id !== id 
+    );
     setTodos(updatedTodos)
 
   }
-
-  const complete = todos.map((todo) => {
-    if(!todo.done){
-      completed.push(todo)
-    }
-    return completed
-  })
 
   return (
 
@@ -43,7 +43,7 @@ function App(){
       <h1 className="text-center text-white font-bold text-3xl mb-4"> My Todo List</h1>
         <AddTodo onAdd={addTodo}/>
         <TodoList todos={todos} onToggle={toggleTodo}/>
-        <CompletedTask onComplete={complete}/>
+        <CompletedTodos todos={completedTodos}/>
       </div>
     </div>
 

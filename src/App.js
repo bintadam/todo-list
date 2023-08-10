@@ -30,13 +30,24 @@ function App(){
 
   function toggleTodo(id){
 
-    const completedTodo = todos.find(todo => todo.id === id);
-    setCompletedTodos([...completedTodos, completedTodo]);
+    const newTodos = [...todos];
     
-    const updatedTodos = todos.filter((todo) => 
-      todo.id !== id 
-    );
-    setTodos(updatedTodos)
+    // Find the index of the todo with the matching ID
+    const todoIndex = newTodos.findIndex(todo => todo.id === id);
+
+    // If found, toggle its done status
+    if (todoIndex !== -1) {
+        const todo = newTodos[todoIndex];
+        todo.done = !todo.done;
+
+        // If the todo is done, move it to completedTodos
+        if (todo.done) {
+            setCompletedTodos([...completedTodos, todo]);
+            newTodos.splice(todoIndex, 1);
+        }
+    }
+    
+    setTodos(newTodos);
 
   }
 

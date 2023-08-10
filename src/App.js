@@ -9,7 +9,13 @@ const items = [
 ]
 
 function App() {
-  const [todos, setTodos] = useState(items)
+  const [todos, setTodos] = useState(items);
+
+  function addTodo(text){
+    const newTodo = {id:Date.now(), text, done:false};
+    setTodos(...todos, newTodo)
+  }
+
   return (
     <div className="bg-custom-green-light h-screen pt-24 p-96">
       <h1>Todo List</h1>

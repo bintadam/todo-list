@@ -1,9 +1,9 @@
 function AddTodo(){
     return (
-        <div>
+        <form>
             <input placeholder="Add Items"/>
             <button className="">+</button>
-        </div>
+        </form>
     )
 }
 

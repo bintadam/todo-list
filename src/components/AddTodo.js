@@ -7,14 +7,16 @@ function AddTodo({onAdd}){
         e.preventDefault()
         if(!text) return ;
         onAdd(text)
-        setText('')
+        setText('');
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input className="" value={text} placeholder="Add Items" onChange={(e) => setText(e.target.value)}/>
-            <button type="submit" className="">+</button>
-        </form>
+        <div className="bg-custom-green-default rounded">
+            <form className="bg-custom-green-dark p-2 text-white" onSubmit={handleSubmit}>
+                <input className="bg-custom-green-dark font-extralight" value={text} placeholder="Add Items" onChange={(e) => setText(e.target.value)}/>
+                <button type="submit" className="bg-teal-400 rounded-full  w-6 h-6 text-base font-bold">+</button>
+            </form>
+        </div>
     )
 }
 

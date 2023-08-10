@@ -4,7 +4,7 @@ function TodoList({todos, onToggle}){
     return (
         <ul>
             {todos.map((todo) => (
-                <Todo key={todo.id} onToggle={onToggle}/>
+                <Todo key={todo.id} todo={todo} onToggle={onToggle}/>
             ))}
         </ul>
     )

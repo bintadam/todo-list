@@ -4,8 +4,8 @@ import AddTodo from "./components/AddTodo"
 
 const items = [
   {id:1, text:"buy groceries", done: false},
-  {id:1, text:"finish painting", done: true},
-  {id:1, text:"exercise daily", done: false}
+  {id:2, text:"finish painting", done: false},
+  {id:3, text:"exercise daily", done: false}
 ]
 
 function App(){
@@ -13,13 +13,13 @@ function App(){
 
   function addTodo(text){
     const newTodo = {id:Date.now(), text, done:false};
-    setTodos(...todos, newTodo)
+    setTodos([...todos, newTodo])
   }
 
   function toggleTodo(id){
     
     const updatedTodos = todos.map((todo) => 
-      todo.id === id ? {...todos, done:!todo.done} : todo
+      todo.id === id ? {...todo, done:!todo.done} : todo
     )
 
     setTodos(updatedTodos)
@@ -28,14 +28,14 @@ function App(){
 
   return (
 
-    <div className="bg-custom-green-light h-screen pt-24 p-96">
-      <h1>Todo List</h1>
+    <div className="bg-custom-green-light h-screen pt-12">
+      <h1 className="text-center text-white font-bold text-3xl"> My Todo List</h1>
       <AddTodo onAdd={addTodo}/>
       <TodoList todos={todos} onToggle={toggleTodo}/>
     </div>
 
   )
-  
+
 }
 
 export default App;

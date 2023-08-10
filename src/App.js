@@ -1,4 +1,6 @@
-import TodoList from "./TodoList"
+import TodoList from "./components/TodoList";
+import Todo from "./components/Todo";
+import AddTodo from "./components/AddTodo"
 
 function App() {
 return (

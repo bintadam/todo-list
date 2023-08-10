@@ -1,8 +1,8 @@
 function TodoList(){
     return (
-        <div>
-
-        </div>
+        <ul>
+            
+        </ul>
     )
 }
 

@@ -2,11 +2,14 @@ import Todo from "./Todo";
 
 function TodoList({todos, onToggle}){
     return (
-        <ul>
-            {todos.map((todo) => (
-                <Todo key={todo.id} todo={todo} onToggle={onToggle}/>
-            ))}
-        </ul>
+        <>
+            <p className="mt-4 font-thin text-slate-300 text-sm ">To-Do List</p>
+            <ul>
+                {todos.map((todo) => (
+                    <Todo key={todo.id} todo={todo} onToggle={onToggle}/>
+                ))}
+            </ul>
+        </>
     )
 }
 

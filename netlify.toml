@@ -1,0 +1,25 @@
+[build]
+  # The command that Netlify will run to build your project.
+  command = "npm run build"
+
+  # The directory that Netlify should deploy (after your build command has been run).
+  publish = "build/"
+
+  # Optionally, specify the base directory. This can be useful if your project has a specific directory that all commands should be run from.
+  base = "path_to_your_base_directory/"
+
+# You can specify environment variables specific to Netlify. 
+# These won't override environment variables set in the Netlify UI, but can be useful for setting defaults.
+[build.environment]
+  REACT_APP_API_ENDPOINT = "https://api.example.com"
+
+# You can also specify settings for different deploy contexts.
+[context.production]
+  command = "npm run production-build"
+  [context.production.environment]
+    REACT_APP_API_ENDPOINT = "https://api.prod.example.com"
+
+[context.deploy-preview]
+  command = "npm run staging-build"
+  [context.deploy-preview.environment]
+    REACT_APP_API_ENDPOINT = "https://api.staging.example.com"

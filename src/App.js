@@ -1,7 +1,7 @@
 function App() {
 return (
-  <div>
-    <div>
+  <div className="bg-custom-green-light">
+    <div className="pt-24">
       <input/>
       <button>+</button>
     </div>

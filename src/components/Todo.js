@@ -1,8 +1,9 @@
-function Todo(){
+function Todo({todo, onToggle}){
     return (
-        <div>
-
-        </div>
+        <li>
+            <input type="checkbox" checked={todo.done} onChange={() => onToggle(todo.id)}/>
+            {todo.text}
+        </li>
     )
 }
 

@@ -6,7 +6,7 @@
   publish = "build/"
 
   # Optionally, specify the base directory. This can be useful if your project has a specific directory that all commands should be run from.
-  base = "src/"
+
 
 # You can specify environment variables specific to Netlify. 
 # These won't override environment variables set in the Netlify UI, but can be useful for setting defaults.

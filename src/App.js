@@ -8,7 +8,7 @@ const items = [
   {id:1, text:"exercise daily", done: false}
 ]
 
-function App() {
+function App(){
   const [todos, setTodos] = useState(items);
 
   function addTodo(text){
@@ -16,13 +16,26 @@ function App() {
     setTodos(...todos, newTodo)
   }
 
+  function toggleTodo(id){
+    
+    const updatedTodos = todos.map((todo) => 
+      todo.id === id ? {...todos, done:!todo.done} : todo
+    )
+
+    setTodos(updatedTodos)
+
+  }
+
   return (
+
     <div className="bg-custom-green-light h-screen pt-24 p-96">
       <h1>Todo List</h1>
-      <AddTodo/>
-      <TodoList/>
+      <AddTodo onAdd={addTodo}/>
+      <TodoList todos={todos} onToggle={toggleTodo}/>
     </div>
+
   )
+  
 }
 
 export default App;

@@ -20,6 +20,6 @@
     REACT_APP_API_ENDPOINT = "https://api.prod.example.com"
 
 [context.deploy-preview]
-  command = "npm run staging-build"
+  command = "npm run build"
   [context.deploy-preview.environment]
     REACT_APP_API_ENDPOINT = "https://api.staging.example.com"

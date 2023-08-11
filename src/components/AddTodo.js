@@ -28,7 +28,7 @@ function AddTodo({onAdd}){
                 <div className="bg-custom-green-dark rounded border rounded-3xl">
                     <form className=" p-1 text-white" onSubmit={handleSubmit}>
                         <input className="bg-custom-green-dark font-extralight pl-2 focus:outline-none" value={text} placeholder="Add Items" onChange={(e) => setText(e.target.value)}/>
-                        <button type="submit" className="ml-28 bg-teal-400 rounded-full  w-8 h-8 text-base font-bold">+</button>
+                        <button type="submit" className="ml-32 bg-teal-400 rounded-full  w-8 h-8 text-base font-bold">+</button>
                     </form>
                 </div>
             )}
